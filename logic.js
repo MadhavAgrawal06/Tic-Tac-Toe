@@ -37,6 +37,7 @@ val.addEventListener("click",()=>{
 });
 
 const checkWinner=()=>{
+    let winnerFound = false;
     for(let pattern of winPatterns){
       let pos1Val=boxes[pattern[0]].innerText;
       let pos2Val=boxes[pattern[1]].innerText;
@@ -47,10 +48,13 @@ const checkWinner=()=>{
         console.log("Winner is Player",pos1Val);
         stat.innerText="Congratulations! Winner is Player "+pos1Val;
         reset.innerText="New Game";
+        winnerFound = true;
         disable();
+        break;
     }
 }
 }
+if(winnerFound==false){
 let draw = true;
     for (let i = 0; i < boxes.length; i++) {
         if (boxes[i].innerText === "") {
@@ -62,6 +66,7 @@ let draw = true;
         stat.innerText="No Winner !";
         reset.innerHTML="New Game";
     }
+}
 };
 
 const disable=()=>{
@@ -82,7 +87,5 @@ const enable=()=>{
 };
 
 reset.addEventListener("click",()=>{
-    boxes.forEach((val)=>{
     enable();
-});
 });
