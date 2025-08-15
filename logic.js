@@ -16,7 +16,7 @@ let winPatterns=[
 ];
 
 boxes.forEach((val)=>{
-val.addEventListener("click",()=>{
+val.addEventListener("click",()=>{  
     
     if(turnO){
       val.innerText="O"; 
@@ -48,6 +48,11 @@ const checkWinner=()=>{
         console.log("Winner is Player",pos1Val);
         stat.innerText="Congratulations! Winner is Player "+pos1Val;
         reset.innerText="New Game";
+
+        boxes[pattern[0]].classList.add("win");
+        boxes[pattern[1]].classList.add("win");
+        boxes[pattern[2]].classList.add("win");
+
         winnerFound = true;
         disable();
         break;
@@ -79,7 +84,7 @@ const enable=()=>{
     boxes.forEach((val)=>{
         val.disabled=false;
         val.innerText=""; 
-        val.classList.remove("x-color","o-color");
+        val.classList.remove("x-color","o-color","win");
         reset.innerText="Reset Game";
 });
         stat.innerText="Player O's Turn";  

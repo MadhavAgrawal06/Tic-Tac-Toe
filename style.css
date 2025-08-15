@@ -52,6 +52,10 @@ h1{
     font-style: italic;
 }
 
+.win {
+  background-color:rgb(162, 184, 119);
+}
+
 .o-color{
     color: rgb(80, 80, 123);
 }
